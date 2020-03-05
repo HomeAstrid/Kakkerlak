@@ -43,7 +43,7 @@ export default class App extends React.Component {
                 {this.state.book === undefined && <div>
                     <p>Kies een kakkerlakse</p>
                     <div>
-                        {this.state.books.map((e) => <a onClick={() => this.book(e.url)}>{e.file}</a>)}
+                        {this.state.books.map((e) => <div><a onClick={() => this.book(e.url)}>{e.file}</a><br/></div>)}
                     </div>
                 </div>
                 }
@@ -57,14 +57,14 @@ export default class App extends React.Component {
                         </Document>
                     </center>
                     <p>Pagina {this.state.pageNumber} van {this.state.numPages}</p>
-                    <button
+                    <a
                         onClick={() => this.setState({pageNumber: this.state.pageNumber === 1 ? 1 : this.state.pageNumber - 1})}>Vorige
                         pagina
-                    </button>
-                    <button
-                        onClick={() => this.setState({pageNumber: this.state.pageNumber === 1 ? 1 : this.state.pageNumber + 1})}>Volgende
+                    </a>
+                    <a
+                        onClick={() => this.setState({pageNumber: this.state.pageNumber === this.state.numPages ? this.state.pageNumber : this.state.pageNumber + 1})}>Volgende
                         pagina
-                    </button>
+                    </a>
                 </div>}
             </div>
         );
